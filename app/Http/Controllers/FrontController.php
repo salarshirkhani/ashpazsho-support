@@ -36,12 +36,12 @@ class FrontController extends Controller
 
     public function index() {
 
-        SEOTools::setTitle('ایران مد اس ال پی');
-        SEOTools::setDescription('گروه بلع‌درمانی ایران‌ مد اس ال پی در سال 1396 و با همت یک مجموعه جوان متخصص برای نخستین بار در سیستم درمانی کشور ایجاد شده است. ');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com');
-        SEOTools::setCanonical('https://iranmedslp.com');
+        SEOTools::setTitle('اوستا');
+        SEOTools::setDescription('گروه بلع‌درمانی  اوستا  در سال 1396 و با همت یک مجموعه جوان متخصص برای نخستین بار در سیستم درمانی کشور ایجاد شده است. ');
+        SEOTools::opengraph()->setUrl('https://avestot.com/');
+        SEOTools::setCanonical('https://avestot.com/');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::twitter()->setSite('@avestot');
 
         return view('welcome',[
             'products' => Product::orderBy('id','desc')->paginate(6),
@@ -74,12 +74,12 @@ class FrontController extends Controller
 
     public function blog() {
 
-        SEOTools::setTitle('ایران مد اس ال پی - مقالات');
-        SEOTools::setDescription('گروه بلع‌درمانی ایران‌ مد اس ال پی در سال 1396 و با همت یک مجموعه جوان متخصص برای نخستین بار در سیستم درمانی کشور ایجاد شده است. ');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/blog');
-        SEOTools::setCanonical('https://iranmedslp.com');
+        SEOTools::setTitle('اوستا - مقالات');
+        SEOTools::setDescription('گروه بلع‌درمانی اوستا  در سال 1396 و با همت یک مجموعه جوان متخصص برای نخستین بار در سیستم درمانی کشور ایجاد شده است. ');
+        SEOTools::opengraph()->setUrl('http://avestot.com/blog');
+        SEOTools::setCanonical('https://avestot.com');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::twitter()->setSite('@avestot');
 
         return view('blog',[
             'categories' => Category::whereNull('parent_id')->with('allChildren')->get(),
@@ -90,17 +90,17 @@ class FrontController extends Controller
 
     public function single($id) {
         $item=Post::where('slug',$id)->first();
-        $related_posts = Post::where('slug','!=',$id)->inRandomOrder()->LIMIT('2')->get();
+        $related_posts = Post::where('slug','!=',$id)->inRandomOrder()->LIMIT('4')->get();
         
-        SEOTools::setTitle('ایران مد اس ال پی - '.$item->gtitle);
+        SEOTools::setTitle('اوستا- '.$item->gtitle);
         SEOTools::setDescription($item->gexplain);
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com');
+        SEOTools::opengraph()->setUrl('http://avestot.com');
         JsonLd::addImage( asset('images/'.$item['pic'].'/'.$item['pic'] ) );
-        SEOTools::setCanonical('http://iranmedslp.com/'.$item->slug);
+        SEOTools::setCanonical('http://avestot.com/'.$item->slug);
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmedslp');
+        SEOTools::twitter()->setSite('@avestot');
         OpenGraph::addImage(['url' => asset('images/'.$item['pic'].'/'.$item['pic'] ) , 'size' => 300]);
-        OpenGraph::setTitle('ایران مد اس ال پی - '.$item->gtitle)
+        OpenGraph::setTitle(' اوستا - '.$item->gtitle)
         ->setDescription($item->gexplain)
         ->setType('article')
         ->setArticle([
@@ -109,7 +109,7 @@ class FrontController extends Controller
             'expiration_time' => 'datetime',
             'author' => 'iranmedslp',
         ]);
-        OpenGraph::setUrl('http://iranmedslp.com/'.$item->slug);
+        OpenGraph::setUrl('http://avestot.com/'.$item->slug);
 
         $comments = comment::where('post_id',$item->id)->where('status','accept')->orderBy('created_at', 'desc')->get();
         $tags=post_tag::select('name')->where('post_id',$item->id)->orderBy('created_at', 'desc')->get();
@@ -133,12 +133,12 @@ class FrontController extends Controller
     
     public function about() {
 
-        SEOTools::setTitle('ایران مد اس ال پی - درباره ما');
-        SEOTools::setDescription('گروه بلع‌درمانی ایران‌ مد اس ال پی در سال 1396 و با همت یک مجموعه جوان متخصص برای نخستین بار در سیستم درمانی کشور ایجاد شده است. ');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/about');
-        SEOTools::setCanonical('https://iranmedslp.com/about');
+        SEOTools::setTitle('اوستا - درباره ما');
+        SEOTools::setDescription('گروه بلع‌درمانی  اوستا در سال 1396 و با همت یک مجموعه جوان متخصص برای نخستین بار در سیستم درمانی کشور ایجاد شده است. ');
+        SEOTools::opengraph()->setUrl('http://avestot.com/about');
+        SEOTools::setCanonical('https://avestot.com/about');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::twitter()->setSite('@avestot');
 
         return view('about');
 
@@ -146,12 +146,12 @@ class FrontController extends Controller
     
     public function employees() {
 
-        SEOTools::setTitle('ایران مد اس ال پی - همکاران ما');
+        SEOTools::setTitle(' اوستا - همکاران ما');
         SEOTools::setDescription('درباره تیم ایران مد اس ال پی از بیمارستان نیکان بیشتر بدانید .معرفی تیم اعضای ایران مد اس ال پی به صورت ویدیو');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/employees');
-        SEOTools::setCanonical('https://iranmedslp.com/employees');
+        SEOTools::opengraph()->setUrl('http://avestot.com/employees');
+        SEOTools::setCanonical('https://avestot.com/employees');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::twitter()->setSite('@avestot');
 
         return view('employees');
 
@@ -160,11 +160,11 @@ class FrontController extends Controller
     public function profile($id) {
         $item=User::where('id',$id)->first();
 
-        SEOTools::setTitle('ایران مد اس ال پی -'.$item->first_name.$item->last_name);
+        SEOTools::setTitle(' اوستا  -'.$item->first_name.$item->last_name);
         SEOTools::setDescription($item->about);
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/profile/'.$id);
-        SEOTools::setCanonical('https://iranmedslp.com/team');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::opengraph()->setUrl('http://avestot.com/profile/'.$id);
+        SEOTools::setCanonical('https://avestot.com/team');
+        SEOTools::twitter()->setSite('@avestot');
         OpenGraph::setTitle('ایران مد اس ال پی -'.$item->first_name.$item->last_name)
              ->setDescription($item->about)
             ->setType('profile')
@@ -182,12 +182,12 @@ class FrontController extends Controller
     
     public function team() {
 
-        SEOTools::setTitle('ایران مد اس ال پی - همکاران ما');
-        SEOTools::setDescription('درباره تیم ایران مد اس ال پی از بیمارستان نیکان بیشتر بدانید . تیمی قوی با پشتوانه علمی مدرن');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/team');
-        SEOTools::setCanonical('https://iranmedslp.com/team');
+        SEOTools::setTitle(' اوستا - همکاران ما');
+        SEOTools::setDescription('درباره تیم  اوستا  از بیمارستان نیکان بیشتر بدانید . تیمی قوی با پشتوانه علمی مدرن');
+        SEOTools::opengraph()->setUrl('http://avestot.com/team');
+        SEOTools::setCanonical('https://avestot.com/team');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::twitter()->setSite('@avestot');
 
         return view('persons',[
             'categories' => Category::whereNull('parent_id')->with('allChildren')->get(),
@@ -199,12 +199,12 @@ class FrontController extends Controller
 
     public function appointment() {
 
-        SEOTools::setTitle('ایران مد اس ال پی - نوبت دهی');
-        SEOTools::setDescription('درباره تیم ایران مد اس ال پی از بیمارستان نیکان بیشتر بدانید . تیمی قوی با پشتوانه علمی مدرن');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/appointment');
-        SEOTools::setCanonical('https://iranmedslp.com/appointment');
+        SEOTools::setTitle(' اوستا - نوبت دهی');
+        SEOTools::setDescription('درباره تیم اوستا  بیمارستان نیکان بیشتر بدانید . تیمی قوی با پشتوانه علمی مدرن');
+        SEOTools::opengraph()->setUrl('http://avestot.com/appointment');
+        SEOTools::setCanonical('https://avestot.com/appointment');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::twitter()->setSite('@avestot');
 
         return view('dating',[
             'categories' => Category::whereNull('parent_id')->with('allChildren')->get(),
@@ -216,12 +216,12 @@ class FrontController extends Controller
         $item=User::where('id',$id)->first();
         $time=time::where('user_id',$id)->get();
 
-        SEOTools::setTitle('ایران مد اس ال پی -'.$item->first_name.$item->last_name);
+        SEOTools::setTitle(' اوستا  -'.$item->first_name.$item->last_name);
         SEOTools::setDescription($item->about);
-        SEOTools::opengraph()->setUrl('https://iranmedslp.com');
-        SEOTools::setCanonical('https://iranmedslp.com');
-        SEOTools::twitter()->setSite('@iranmed');
-        OpenGraph::setTitle('ایران مد اس ال پی -'.$item->first_name.$item->last_name)
+        SEOTools::opengraph()->setUrl('https://avestot.com');
+        SEOTools::setCanonical('https://avestot.com');
+        SEOTools::twitter()->setSite('@avestot');
+        OpenGraph::setTitle(' اوستا -'.$item->first_name.$item->last_name)
              ->setDescription($item->about)
             ->setType('profile')
             ->setProfile([
@@ -300,10 +300,10 @@ class FrontController extends Controller
 
             SEOTools::setTitle('ایران مد اس ال پی - مشاوره');
             SEOTools::setDescription('درباره تیم ایران مد اس ال پی از بیمارستان نیکان بیشتر بدانید . تیمی قوی با پشتوانه علمی مدرن');
-            SEOTools::opengraph()->setUrl('http://iranmedslp.com/consultant');
-            SEOTools::setCanonical('https://iranmedslp.com/consultant');
+            SEOTools::opengraph()->setUrl('http://avestot.com/consultant');
+            SEOTools::setCanonical('https://avestot.com/consultant');
             SEOTools::opengraph()->addProperty('type', 'articles');
-            SEOTools::twitter()->setSite('@iranmed');
+            SEOTools::twitter()->setSite('@avestot');
     
             return view('consultant',[
                 'categories' => Category::whereNull('parent_id')->with('allChildren')->get(),
@@ -343,10 +343,10 @@ class FrontController extends Controller
 
         SEOTools::setTitle('ایران مد اس ال پی - خدمات آنلاین');
         SEOTools::setDescription('درباره تیم ایران مد اس ال پی از بیمارستان نیکان بیشتر بدانید . تیمی قوی با پشتوانه علمی مدرن');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/services');
-        SEOTools::setCanonical('https://iranmedslp.com');
+        SEOTools::opengraph()->setUrl('http://avestot.com/services');
+        SEOTools::setCanonical('https://avestot.com');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::twitter()->setSite('@avestot');
 
         return view('services',[
             'categories' => Category::whereNull('parent_id')->with('allChildren')->get(),
@@ -357,10 +357,10 @@ class FrontController extends Controller
 
         SEOTools::setTitle('ایران مد اس ال پی -  جست و جوی بیماری');
         SEOTools::setDescription('درباره تیم ایران مد اس ال پی از بیمارستان نیکان بیشتر بدانید . تیمی قوی با پشتوانه علمی مدرن');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/find');
-        SEOTools::setCanonical('https://iranmedslp.com');
+        SEOTools::opengraph()->setUrl('http://avestot.com/find');
+        SEOTools::setCanonical('https://avestot.com');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::twitter()->setSite('@avestot');
 
         return view('find',[
             'categories' => Category::whereNull('parent_id')->with('allChildren')->get(),
@@ -373,10 +373,10 @@ class FrontController extends Controller
 
         SEOTools::setTitle('ایران مد اس ال پی - ارزیابی آنلاین');
         SEOTools::setDescription('درباره تیم ایران مد اس ال پی از بیمارستان نیکان بیشتر بدانید . تیمی قوی با پشتوانه علمی مدرن');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/procedure');
-        SEOTools::setCanonical('https://iranmedslp.com');
+        SEOTools::opengraph()->setUrl('http://avestot.com/procedure');
+        SEOTools::setCanonical('https://avestot.com');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::twitter()->setSite('@avestot');
 
         return view('procedure',[
             'categories' => Category::whereNull('parent_id')->with('allChildren')->get(),
@@ -429,10 +429,10 @@ class FrontController extends Controller
 
         SEOTools::setTitle('ایران مد اس ال پی - بررسی مشکل بیمار ');
         SEOTools::setDescription('بررسی مشکل بیماران در ایران مد اس ال پی');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/problem');
-        SEOTools::setCanonical('https://iranmedslp.com');
+        SEOTools::opengraph()->setUrl('http://avestot.com/problem');
+        SEOTools::setCanonical('https://avestot.com');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::twitter()->setSite('@avestot');
 
         return view('problem',[
             'categories' => Category::whereNull('parent_id')->with('allChildren')->get(),
@@ -443,10 +443,10 @@ class FrontController extends Controller
 
         SEOTools::setTitle('ایران مد اس ال پی - بررسی مشکل بیمار ');
         SEOTools::setDescription('این پرسشنامه برای بررسی اختلال بلع در بیماران ام اس طراحی شده است. لطفا پس از تکمیل اطلاعات به سوالات یک تا ده با انتخاب یکی از گزینه‌های بلی یا خیر پاسخ بدهید.');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/khalili');
-        SEOTools::setCanonical('https://iranmedslp.com');
+        SEOTools::opengraph()->setUrl('http://avestot.com/khalili');
+        SEOTools::setCanonical('https://avestot.com');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmed');
+        SEOTools::twitter()->setSite('@avestot');
 
         return view('khalili',[
             'categories' => Category::whereNull('parent_id')->with('allChildren')->get(),
@@ -460,10 +460,10 @@ class FrontController extends Controller
         $category=postcategory::where('slug' , $slug)->FIRST();
         SEOTools::setTitle('ایران مد اس ال پی-'.$category->name);
         SEOTools::setDescription($category->desccription);
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/category/'.$slug);
-        SEOTools::setCanonical('http://iranmedslp.com/category/'.$slug);
+        SEOTools::opengraph()->setUrl('http://avestot.com/category/'.$slug);
+        SEOTools::setCanonical('http://avestot.com/category/'.$slug);
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmedslp');
+        SEOTools::twitter()->setSite('@avestot');
         
 
         $posts = Post::where('category' , $category->id)->where('show_at','<',carbon::now())->orWhere('show_at',NULL)->orderBy('created_at','desc')->paginate(10);
@@ -480,10 +480,10 @@ class FrontController extends Controller
 
         SEOTools::setTitle('ایران مد اس ال پی-تجربه بیماران');
         SEOTools::setDescription('در اینجا تجربه بیماران ایران مد اس ال پی را مشاهده خواهید کرد');
-        SEOTools::opengraph()->setUrl('http://iranmedslp.com/responses/');
-        SEOTools::setCanonical('http://iranmedslp.com');
+        SEOTools::opengraph()->setUrl('http://avestot.com/responses/');
+        SEOTools::setCanonical('http://avestot.com');
         SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@iranmedslp');
+        SEOTools::twitter()->setSite('@avestot');
         
 
         $posts = response::where('status' , 'accept')->orderBy('id','desc')->paginate(10);

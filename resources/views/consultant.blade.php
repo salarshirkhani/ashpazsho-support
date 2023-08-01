@@ -112,10 +112,7 @@
     margin: 30px 26px 0px 0px;
 }
     
-}
-
-
-    
+}   
 }
 </style>
         
