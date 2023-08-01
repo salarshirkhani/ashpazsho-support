@@ -1,4 +1,4 @@
-@extends('layouts.front')
+@extends('layouts.frontt')
 @section('content')
 <link rel="stylesheet" href="{{asset('css/custom/main.css')}}">
 <link rel="stylesheet" href="{{asset('css/custom/contact.css')}}">

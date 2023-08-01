@@ -290,376 +290,52 @@
                <!-- slide bar  Advertising-->
                <div class="Advertising-p6 ">
                    <!-- inside Advertising -->
+                   @foreach($posts->take(15) as $item) 
+             
                    <div class="carousel-cell-Advertising"> 
                        <div class="roww-1">
-                           <img src="{{asset('img/image 35.png')}}" alt="">
+                           <img src="{{ asset('images/'.$item['pic'].'/'.$item['pic'] ) }}" alt="{{$item->title}}">
                        </div>
                        <div class="roww-2">
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
                            
                        </div>
                        <div class="roww-3">
-                           <a href=""><h4>ایمپلنت دندان چیست ؟ ایمپلنت دندان اقساطی در تهران</h4></a>
+                           <a href="{{route('single',['id'=>$item->slug])}}"><h4>{!! \Illuminate\Support\Str::limit($item->title, 50, ' ...') !!}</h4></a>
                        </div>
                        <div class="roww-4">
-                           <a href=""><p>ایمپلنت دندان اقصاتی با توجه به هزینه های بسیار بالای دندان پزشکی از جم...</p></a>
+                           <a href="{{route('single',['id'=>$item->slug])}}"><p>{!! \Illuminate\Support\Str::limit($item->explain, 100, ' ...') !!}</p></a>
                        </div>
                        <div class="roww-5">
                            <div class="lg2">
-                               <img src="{{asset('img/image 33.png')}}" class="rounded-circle" alt="Cinque Terre" width="304" height="304">
-                               <p>میلاد نوکلی</p>
+                                @if($item->writer == 'مهرداد خلیلی')
+                                    <img src="{{asset('images/khalili.jpeg')}}" class="rounded-circle" width="304" height="304" alt="author">
+                                @endif
+                                
+                                @if($item->writer == 'نرگس خاکباز')
+                                    <img src="{{asset('images/khakbaz.jpeg')}}" class="rounded-circle" width="304" height="304" alt="author">
+                                @endif
+                                
+                                @if($item->writer == 'شیما حسین آبادی')
+                                    <img src="{{asset('images/hoseinabadi.jpeg')}}" class="rounded-circle" width="304" height="304" alt="author">
+                                @endif
+                                
+                                @if($item->writer == 'سیما اعتباری')
+                                    <img src="{{asset('images/etebari.jpeg')}}" class="rounded-circle" width="304" height="304" alt="author">
+                                @endif
+                                @if($item->writer == 'موید سلمانی')
+                                    <img src="{{asset('images/avatar/01.jpg')}}" class="rounded-circle" width="304" height="304" alt="author">
+                                @endif    
+                               <p>{{$item->writer}}</p>
                            </div>
                            <div class="lg4">
-                               <p>02/04/17</p>
+                               <p>{!! Facades\Verta::instance($item->created_at)->formatDate() !!}</p>
                            </div>
                        </div>
                    </div>
+                   @endforeach 
                    <!-- end one cell Advertising -->
-                   <div class="carousel-cell-Advertising"> 
-                       <div class="roww-1">
-                           <img src="{{asset('img/image 35.png')}}" alt="">
-                       </div>
-                       <div class="roww-2">
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                       </div>
-                       <div class="roww-3">
-                           <a href=""><h4>ایمپلنت دندان چیست ؟ ایمپلنت دندان اقساطی در تهران</h4></a>
-                       </div>
-                       <div class="roww-4">
-                           <a href=""><p>ایمپلنت دندان اقصاتی با توجه به هزینه های بسیار بالای دندان پزشکی از جم...</p></a>
-                       </div>
-                       <div class="roww-5">
-                           <div class="lg2">
-                               <img src="{{asset('img/image 33.png')}}" class="rounded-circle" alt="Cinque Terre" width="304" height="304">
-                               <p>میلاد نوکلی</p>
-                           </div>
-                           <div class="lg4">
-                               <p>02/04/17</p>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- end one cell Advertising -->
-                   <div class="carousel-cell-Advertising"> 
-                       <div class="roww-1">
-                           <img src="{{asset('img/image 35.png')}}" alt="">
-                       </div>
-                       <div class="roww-2">
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                       </div>
-                       <div class="roww-3">
-                           <a href=""><h4>ایمپلنت دندان چیست ؟ ایمپلنت دندان اقساطی در تهران</h4></a>
-                       </div>
-                       <div class="roww-4">
-                           <a href=""><p>ایمپلنت دندان اقصاتی با توجه به هزینه های بسیار بالای دندان پزشکی از جم...</p></a>
-                       </div>
-                       <div class="roww-5">
-                           <div class="lg2">
-                               <img src="{{asset('img/image 33.png')}}" class="rounded-circle" alt="Cinque Terre" width="304" height="304">
-                               <p>میلاد نوکلی</p>
-                           </div>
-                           <div class="lg4">
-                               <p>02/04/17</p>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- end one cell Advertising -->
-                   <div class="carousel-cell-Advertising"> 
-                       <div class="roww-1">
-                           <img src="{{asset('img/image 35.png')}}" alt="">
-                       </div>
-                       <div class="roww-2">
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                       </div>
-                       <div class="roww-3">
-                           <a href=""><h4>ایمپلنت دندان چیست ؟ ایمپلنت دندان اقساطی در تهران</h4></a>
-                       </div>
-                       <div class="roww-4">
-                           <a href=""><p>ایمپلنت دندان اقصاتی با توجه به هزینه های بسیار بالای دندان پزشکی از جم...</p></a>
-                       </div>
-                       <div class="roww-5">
-                           <div class="lg2">
-                               <img src="{{asset('img/image 33.png')}}" class="rounded-circle" alt="Cinque Terre" width="304" height="304">
-                               <p>میلاد نوکلی</p>
-                           </div>
-                           <div class="lg4">
-                               <p>02/04/17</p>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- end one cell Advertising -->
-                   <div class="carousel-cell-Advertising"> 
-                       <div class="roww-1">
-                           <img src="{{asset('img/image 35.png')}}" alt="">
-                       </div>
-                       <div class="roww-2">
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                       </div>
-                       <div class="roww-3">
-                           <a href=""><h4>ایمپلنت دندان چیست ؟ ایمپلنت دندان اقساطی در تهران</h4></a>
-                       </div>
-                       <div class="roww-4">
-                           <a href=""><p>ایمپلنت دندان اقصاتی با توجه به هزینه های بسیار بالای دندان پزشکی از جم...</p></a>
-                       </div>
-                       <div class="roww-5">
-                           <div class="lg2">
-                               <img src="{{asset('img/image 33.png')}}" class="rounded-circle" alt="Cinque Terre" width="304" height="304">
-                               <p>میلاد نوکلی</p>
-                           </div>
-                           <div class="lg4">
-                               <p>02/04/17</p>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- end one cell Advertising -->
-                   <div class="carousel-cell-Advertising"> 
-                       <div class="roww-1">
-                           <img src="{{asset('img/image 35.png')}}" alt="">
-                       </div>
-                       <div class="roww-2">
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                       </div>
-                       <div class="roww-3">
-                           <a href=""><h4>ایمپلنت دندان چیست ؟ ایمپلنت دندان اقساطی در تهران</h4></a>
-                       </div>
-                       <div class="roww-4">
-                           <a href=""><p>ایمپلنت دندان اقصاتی با توجه به هزینه های بسیار بالای دندان پزشکی از جم...</p></a>
-                       </div>
-                       <div class="roww-5">
-                           <div class="lg2">
-                               <img src="{{asset('img/image 33.png')}}" class="rounded-circle" alt="Cinque Terre" width="304" height="304">
-                               <p>میلاد نوکلی</p>
-                           </div>
-                           <div class="lg4">
-                               <p>02/04/17</p>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- end one cell Advertising -->
-                   <div class="carousel-cell-Advertising"> 
-                       <div class="roww-1">
-                           <img src="{{asset('img/image 35.png')}}" alt="">
-                       </div>
-                       <div class="roww-2">
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                       </div>
-                       <div class="roww-3">
-                           <a href=""><h4>ایمپلنت دندان چیست ؟ ایمپلنت دندان اقساطی در تهران</h4></a>
-                       </div>
-                       <div class="roww-4">
-                           <a href=""><p>ایمپلنت دندان اقصاتی با توجه به هزینه های بسیار بالای دندان پزشکی از جم...</p></a>
-                       </div>
-                       <div class="roww-5">
-                           <div class="lg2">
-                               <img src="{{asset('img/image 33.png')}}" class="rounded-circle" alt="Cinque Terre" width="304" height="304">
-                               <p>میلاد نوکلی</p>
-                           </div>
-                           <div class="lg4">
-                               <p>02/04/17</p>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- end one cell Advertising -->
-                   <div class="carousel-cell-Advertising"> 
-                       <div class="roww-1">
-                           <img src="{{asset('img/image 35.png')}}" alt="">
-                       </div>
-                       <div class="roww-2">
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                       </div>
-                       <div class="roww-3">
-                           <a href=""><h4>ایمپلنت دندان چیست ؟ ایمپلنت دندان اقساطی در تهران</h4></a>
-                       </div>
-                       <div class="roww-4">
-                           <a href=""><p>ایمپلنت دندان اقصاتی با توجه به هزینه های بسیار بالای دندان پزشکی از جم...</p></a>
-                       </div>
-                       <div class="roww-5">
-                           <div class="lg2">
-                               <img src="{{asset('img/image 33.png')}}" class="rounded-circle" alt="Cinque Terre" width="304" height="304">
-                               <p>میلاد نوکلی</p>
-                           </div>
-                           <div class="lg4">
-                               <p>02/04/17</p>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- end one cell Advertising -->
-                   <div class="carousel-cell-Advertising"> 
-                       <div class="roww-1">
-                           <img src="{{asset('img/image 35.png')}}" alt="">
-                       </div>
-                       <div class="roww-2">
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                           <a href="#">
-                               <div class="tag">
-                                   <p> به دندان</p>
-                               </div>
-                           </a>
-                           
-                       </div>
-                       <div class="roww-3">
-                           <a href=""><h4>ایمپلنت دندان چیست ؟ ایمپلنت دندان اقساطی در تهران</h4></a>
-                       </div>
-                       <div class="roww-4">
-                           <a href=""><p>ایمپلنت دندان اقصاتی با توجه به هزینه های بسیار بالای دندان پزشکی از جم...</p></a>
-                       </div>
-                       <div class="roww-5">
-                           <div class="lg2">
-                               <img src="{{asset('img/image 33.png')}}" class="rounded-circle" alt="Cinque Terre" width="304" height="304">
-                               <p>میلاد نوکلی</p>
-                           </div>
-                           <div class="lg4">
-                               <p>02/04/17</p>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- end one cell Advertising -->
-               </div>
+
+                </div>
            </div>
        </div>
    </div>
