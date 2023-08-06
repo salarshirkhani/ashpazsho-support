@@ -21,6 +21,12 @@ p{
 label{
   font-weight: 800;
 }
+body{
+  background-color: #ebabca38;
+}
+.logo img {
+    width: 210px;
+}
 </style>
   <!-- Add your site or application content here -->
   <div class="container-fluid">

@@ -114,114 +114,12 @@ textarea.form-control {
  opacity:1;
  z-index:1
 }
-.tooltip:hover .tooltext {
- visibility:visible;
- opacity:1
-}
-.tooltip:hover .top {
- bottom:65%
-}
-.tooltip:hover .bottom {
- top:65%
-}
-.tooltip:hover .left {
- left:15%
-}
-.tooltip:hover .right {
- right:15%
-}
-.tooltip .tooltext {
- position:absolute;
- z-index:1;
- font-size:11px;
- padding:6px 6px;
- line-height:10px;
- text-align:center;
- letter-spacing:0px;
- border-radius:4px;
- color:var(--white);
- background:var(--dark);
- font-family: iransans;
- text-transform:capitalize;
- border:1px solid var(--light-white);
- visibility:hidden;
- opacity:0;
- transition:all linear .3s;
- -webkit-transition:all linear .3s;
- -moz-transition:all linear .3s;
- -ms-transition:all linear .3s;
- -o-transition:all linear .3s
-}
-.tooltip .tooltext::before {
- position:absolute;
- content:"";
- width:7px;
- height:7px;
- border-radius:1px;
- background:var(--dark)
-}
-.tooltip .top {
- bottom:50%;
- right:50%;
- -webkit-transform:translate(50%, -50%);
- transform:translate(50%, -50%)
-}
-.tooltip .top::before {
- bottom:-4px;
- right:50%;
- -webkit-transform:translateX(50%) rotate(-45deg);
- transform:translateX(50%) rotate(-45deg);
- border-left:1px solid var(--light-white);
- border-bottom:1px solid var(--light-white)
-}
-.tooltip .bottom {
- top:50%;
- right:50%;
- -webkit-transform:translate(50%, 50%);
- transform:translate(50%, 50%)
-}
-.tooltip .bottom::before {
- top:-4px;
- right:50%;
- -webkit-transform:translateX(50%) rotate(-45deg);
- transform:translateX(50%) rotate(-45deg);
- border-top:1px solid var(--light-white);
- border-right:1px solid var(--light-white)
-}
-.tooltip .left {
- top:50%;
- left:0%;
- -webkit-transform:translate(50%, -50%);
- transform:translate(50%, -50%)
-}
-.tooltip .left::before {
- left:-4px;
- top:50%;
- -webkit-transform:translateY(-50%) rotate(-45deg);
- transform:translateY(-50%) rotate(-45deg);
- border-top:1px solid var(--light-white);
- border-left:1px solid var(--light-white)
-}
-.tooltip .right {
- top:50%;
- right:0%;
- -webkit-transform:translate(-50%, -50%);
- transform:translate(-50%, -50%)
-}
-.tooltip .right::before {
- right:-4px;
- top:50%;
- -webkit-transform:translateY(-50%) rotate(-45deg);
- transform:translateY(-50%) rotate(-45deg);
- border-right:1px solid var(--light-white);
- border-bottom:1px solid var(--light-white)
-}
 </style>
 
 <div class="page1-row">
     <div class="col-lg-12 col-12">
         <div class="content-p1">
-            <svg width="418" height="123" viewBox="0 0 418 123" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="340" height="123" viewBox="0 0 418 123" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_332_304)">
                     <path opacity="0.7"
                         d="M80.6472 82.027C70.8204 77.1387 10.7174 86.0175 6.14678 84.7538C2.17038 83.0246 2.94737 48.3408 5.73543 43.0534C6.69525 41.1578 8.06643 40.792 11.4486 41.4572C15.6079 42.4549 71.1861 37.5664 83.1611 36.6354C84.1665 37.6662 86.4518 33.975 87.046 35.2719C87.9601 36.7683 115.384 35.6377 143.722 34.5404C154.142 34.1413 175.03 33.1105 206.109 32.5119C211.731 32.4121 207.299 34.4738 213.88 33.7423C227.911 32.1461 258.534 34.4406 269.184 32.8444C277.73 31.5807 279.559 31.5476 287.695 33.044C294.687 34.3408 340.301 34.8065 345.65 32.7446C346.929 32.1461 347.89 32.4453 347.797 33.2102C347.797 33.2102 378.969 35.804 379.06 36.4358C379.244 37.2006 380.112 37.6329 381.072 37.1675C382.717 36.3694 416.265 35.9702 416.538 38.2647C417.362 44.7492 409.637 71.4855 405.205 77.837C400.542 84.5542 380.661 75.1102 362.971 78.3026C275.263 73.6471 283.215 74.9771 266.852 77.0056C264.978 74.6446 257.437 80.1647 252.912 76.0081C251.085 74.3121 237.556 73.8133 234.539 75.4427C233.259 76.141 215.342 75.3098 196.877 75.1102C178.412 74.9106 159.352 75.4094 155.925 77.7039C141.573 73.6471 86.3605 81.4284 80.6472 82.027Z"
@@ -341,7 +239,7 @@ textarea.form-control {
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-btn">
-                                    <button type="submit" class="btn btn-inline-left">
+                                    <button type="submit" class="btn btn-inline" style="margin-bottom: 100px">
                                         <i class="fas fa-tint"></i>
                                         <span> ثبت درخواست ارزیابی</span>
                                     </button>

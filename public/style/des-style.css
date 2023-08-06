@@ -422,9 +422,10 @@ main {
     padding-top: 110px;
 }
 .cell-p4 {
-    height: 250px;
+    height: 200px;
     background-color: #FBFBFB;
-    width: 330px;
+    width: 295px;
+    transition: 0.5s; 
     margin: 0 auto;
     border-radius: 14px;
     display: flex;
@@ -432,6 +433,11 @@ main {
     align-items: center;
     justify-content: space-around;
     box-shadow: 0px 1px 10px -1px rgba(30, 148, 159, 0.48);
+}
+
+.cell-p4:hover{
+    margin-top:15px;
+    box-shadow: 0px 1px 10px -1px rgb(159 30 30 / 48%);
 }
 
 .h4-p4 {
@@ -604,7 +610,7 @@ main {
 }
 .head-p6 {
     font-family: 'KalamehWeb_Black';
-    font-size: 48px;
+    font-size: 42px;
     line-height: 82px;
     letter-spacing: 0em;
     text-align: right;

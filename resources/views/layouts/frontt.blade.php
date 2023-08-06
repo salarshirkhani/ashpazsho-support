@@ -90,6 +90,8 @@
                                             }
                                         </style>
                                         <li class="item"><i class="fas fa-home"></i><a href="{{route('/')}}">صفحه اصلی</a></li>
+                                        <li class="item"><i class="fab fa-discourse"></i><a href="{{route('/')}}/category/articles">مقالات</a></li>
+                                        
                                         <li class="item menu-item-130"><i class="fas fa-chalkboard-teacher"></i><a href="#">آموزش</a>
                                             <ul class="sub-menu">
                                                 <li><a href="">تجربیات درمانگران</a> </li>

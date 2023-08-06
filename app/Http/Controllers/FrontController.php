@@ -341,7 +341,7 @@ class FrontController extends Controller
 
     public function services() {
 
-        SEOTools::setTitle('ایران مد اس ال پی - خدمات آنلاین');
+        SEOTools::setTitle('اوستا');
         SEOTools::setDescription('درباره تیم ایران مد اس ال پی از بیمارستان نیکان بیشتر بدانید . تیمی قوی با پشتوانه علمی مدرن');
         SEOTools::opengraph()->setUrl('http://avestot.com/services');
         SEOTools::setCanonical('https://avestot.com');
@@ -355,7 +355,7 @@ class FrontController extends Controller
 
     public function find() {
 
-        SEOTools::setTitle('ایران مد اس ال پی -  جست و جوی بیماری');
+        SEOTools::setTitle('اوستا');
         SEOTools::setDescription('درباره تیم ایران مد اس ال پی از بیمارستان نیکان بیشتر بدانید . تیمی قوی با پشتوانه علمی مدرن');
         SEOTools::opengraph()->setUrl('http://avestot.com/find');
         SEOTools::setCanonical('https://avestot.com');
@@ -371,7 +371,7 @@ class FrontController extends Controller
 
     public function Procedure() {
 
-        SEOTools::setTitle('ایران مد اس ال پی - ارزیابی آنلاین');
+        SEOTools::setTitle('اوستا');
         SEOTools::setDescription('درباره تیم ایران مد اس ال پی از بیمارستان نیکان بیشتر بدانید . تیمی قوی با پشتوانه علمی مدرن');
         SEOTools::opengraph()->setUrl('http://avestot.com/procedure');
         SEOTools::setCanonical('https://avestot.com');
@@ -427,7 +427,7 @@ class FrontController extends Controller
     
     public function Problem() {
 
-        SEOTools::setTitle('ایران مد اس ال پی - بررسی مشکل بیمار ');
+        SEOTools::setTitle('اوستا');
         SEOTools::setDescription('بررسی مشکل بیماران در ایران مد اس ال پی');
         SEOTools::opengraph()->setUrl('http://avestot.com/problem');
         SEOTools::setCanonical('https://avestot.com');
@@ -441,7 +441,7 @@ class FrontController extends Controller
     
     public function khalili() {
 
-        SEOTools::setTitle('ایران مد اس ال پی - بررسی مشکل بیمار ');
+        SEOTools::setTitle('اوستا');
         SEOTools::setDescription('این پرسشنامه برای بررسی اختلال بلع در بیماران ام اس طراحی شده است. لطفا پس از تکمیل اطلاعات به سوالات یک تا ده با انتخاب یکی از گزینه‌های بلی یا خیر پاسخ بدهید.');
         SEOTools::opengraph()->setUrl('http://avestot.com/khalili');
         SEOTools::setCanonical('https://avestot.com');
@@ -478,7 +478,7 @@ class FrontController extends Controller
 
     public function response() {
 
-        SEOTools::setTitle('ایران مد اس ال پی-تجربه بیماران');
+        SEOTools::setTitle('اوستا');
         SEOTools::setDescription('در اینجا تجربه بیماران ایران مد اس ال پی را مشاهده خواهید کرد');
         SEOTools::opengraph()->setUrl('http://avestot.com/responses/');
         SEOTools::setCanonical('http://avestot.com');

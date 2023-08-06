@@ -90,11 +90,13 @@
            </div>
        </div>
        <button>
+        <a href="{{route('appointment')}}" style="color: white;">
            <svg width="41" height="36" viewBox="0 0 41 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                <ellipse cx="8.76812" cy="10.25" rx="8.76812" ry="10.25" transform="matrix(5.1099e-08 -1 -1 -3.73919e-08 30.75 29.8408)" fill="#7E869E" fill-opacity="0.25"/>
                <path d="M16.2292 18.8808L20.5001 22.5342M20.5001 22.5342L24.7709 18.8808M20.5001 22.5342L20.5001 7.92065" stroke="white" stroke-width="3" stroke-linecap="round"/>
            </svg>
            گرفتن وقت مشاوره
+        </a>
        </button>
    </div>
    <!-- page 4 -->
@@ -104,61 +106,70 @@
                دسترسی سریع
            </h2>
        </div>
-       <div class="row">
-           <div class="col-lg-4 col-md-6 col-12">
-               <div class="cell-p4">
-                   <div class="svg-p4">
-                       <svg width="115" height="107" viewBox="0 0 115 107" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <g id="Done_ring_round">
-                           <path id="Line 1" d="M43.1249 44.5837L61.5829 57.4641C61.9899 57.7481 62.5436 57.6907 62.8836 57.3291L95.8333 22.292" stroke="#28B0BD" stroke-width="11" stroke-linecap="round"/>
-                           <path id="Ellipse 47" d="M100.625 53.5C100.625 61.8839 97.8025 70.0571 92.554 76.8719C87.3055 83.6867 79.8946 88.8007 71.3621 91.4956C62.8296 94.1905 53.6042 94.3309 44.9815 91.8972C36.3588 89.4635 28.772 84.5779 23.2866 77.9266C17.8013 71.2752 14.6929 63.1922 14.3981 54.8129C14.1033 46.4335 16.6368 38.1787 21.6429 31.2077C26.6489 24.2368 33.8761 18.9 42.3092 15.9468C50.7424 12.9936 59.9579 12.5723 68.6616 14.7422" stroke="#28B0BD" stroke-width="11" stroke-linecap="round"/>
-                           </g>
-                       </svg> 
-                   </div>
-                   <h4 class="h4-p4">ارزیابی انلاین</h4>
-               </div>
-           </div>
-           <div class="col-lg-4 col-md-6  col-12">
-               <div class="cell-p4">
-                   <div class="svg-p4">
-                       <svg xmlns="http://www.w3.org/2000/svg" width="138" height="121" viewBox="0 0 138 121" fill="none">
-                           <g filter="url(#filter0_d_332_273)">
-                             <path d="M111.124 29.1297C115 34.2162 115 41.297 115 55.4587C115 69.6203 115 76.7011 111.124 81.7877C109.446 83.9897 107.289 85.8803 104.778 87.3516C99.7103 90.3207 92.9068 90.696 80.5 90.7435V90.7503L74.1429 101.898C72.0239 105.614 65.976 105.614 63.857 101.898L57.5 90.7503V90.7435C45.0932 90.696 38.2897 90.3207 33.2219 87.3516C30.7105 85.8803 28.5542 83.9897 26.8762 81.7877C23 76.7011 23 69.6203 23 55.4587C23 41.297 23 34.2162 26.8762 29.1297C28.5542 26.9277 30.7105 25.037 33.2219 23.5657C39.023 20.167 47.0987 20.167 63.25 20.167H74.75C90.9013 20.167 98.977 20.167 104.778 23.5657C107.289 25.037 109.446 26.9277 111.124 29.1297Z" fill="#7E869E" fill-opacity="0.25" stroke="#28B0BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                             <path d="M51.75 45.375L86.25 45.375" stroke="#28B0BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                             <path d="M51.75 65.542H69" stroke="#28B0BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                           </g>
-                           <defs>
-                             <filter id="filter0_d_332_273" x="-4" y="0" width="146" height="129" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                               <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                               <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                               <feOffset dy="4"/>
-                               <feGaussianBlur stdDeviation="2"/>
-                               <feComposite in2="hardAlpha" operator="out"/>
-                               <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                               <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_332_273"/>
-                               <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_332_273" result="shape"/>
-                             </filter>
-                           </defs>
-                         </svg>
-                   </div>
-                   <h4 class="h4-p4">ثبت مشاوره رایگان</h4>
-               </div>
-           </div>
-           <div class="col-lg-4 col-md-6 col-12">
-               <div class="cell-p4">
-                   <div class="svg-p4">
-                       <svg xmlns="http://www.w3.org/2000/svg" width="121" height="121" viewBox="0 0 121 121" fill="none">
-                           <path d="M100.833 30.167C100.833 25.4529 100.833 23.0959 99.3688 21.6315C97.9044 20.167 95.5473 20.167 90.8333 20.167H30.1666C25.4526 20.167 23.0956 20.167 21.6311 21.6315C20.1666 23.0959 20.1666 25.4529 20.1666 30.167V98.8336C20.1666 99.7765 20.1666 100.248 20.4595 100.541C20.7524 100.834 21.2238 100.834 22.1666 100.834H90.8333C95.5473 100.834 97.9044 100.834 99.3688 99.3692C100.833 97.9047 100.833 95.5477 100.833 90.8336V30.167Z" fill="#7E869E" fill-opacity="0.25"/>
-                           <path d="M42.8541 42.8545H78.1458" stroke="#28B0BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                           <path d="M42.8541 57.9795H68.0625" stroke="#28B0BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                           <path d="M93.2917 78.1462C93.2917 83.7265 88.7679 88.2503 83.1875 88.2503C77.6072 88.2503 73.0834 83.7265 73.0834 78.1462C73.0834 72.5658 77.6072 68.042 83.1875 68.042C88.7679 68.042 93.2917 72.5658 93.2917 78.1462Z" stroke="#28B0BD" stroke-width="5"/>
-                           <path d="M95.7916 90.75L103.354 98.3125" stroke="#28B0BD" stroke-width="5" stroke-linecap="round"/>
-                       </svg>
-                   </div>
-                   <h4 class="h4-p4">جستجوی بیماری</h4>
-               </div>
-           </div>
+       <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="cell-p4">
+                    <a href="{{route('procedure')}}">
+                    <div class="svg-p4">
+                        <svg width="95" height="87" viewBox="0 0 115 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="Done_ring_round">
+                            <path id="Line 1" d="M43.1249 44.5837L61.5829 57.4641C61.9899 57.7481 62.5436 57.6907 62.8836 57.3291L95.8333 22.292" stroke="#28B0BD" stroke-width="11" stroke-linecap="round"/>
+                            <path id="Ellipse 47" d="M100.625 53.5C100.625 61.8839 97.8025 70.0571 92.554 76.8719C87.3055 83.6867 79.8946 88.8007 71.3621 91.4956C62.8296 94.1905 53.6042 94.3309 44.9815 91.8972C36.3588 89.4635 28.772 84.5779 23.2866 77.9266C17.8013 71.2752 14.6929 63.1922 14.3981 54.8129C14.1033 46.4335 16.6368 38.1787 21.6429 31.2077C26.6489 24.2368 33.8761 18.9 42.3092 15.9468C50.7424 12.9936 59.9579 12.5723 68.6616 14.7422" stroke="#28B0BD" stroke-width="11" stroke-linecap="round"/>
+                            </g>
+                        </svg> 
+                    </div></a><a href="{{route('procedure')}}">
+                    <h4 class="h4-p4">ارزیابی انلاین</h4>
+                </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6  col-12">
+                <div class="cell-p4">
+                    <a href="{{route('consultant')}}">
+                    <div class="svg-p4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="118" height="101" viewBox="0 0 138 121" fill="none">
+                            <g filter="url(#filter0_d_332_273)">
+                              <path d="M111.124 29.1297C115 34.2162 115 41.297 115 55.4587C115 69.6203 115 76.7011 111.124 81.7877C109.446 83.9897 107.289 85.8803 104.778 87.3516C99.7103 90.3207 92.9068 90.696 80.5 90.7435V90.7503L74.1429 101.898C72.0239 105.614 65.976 105.614 63.857 101.898L57.5 90.7503V90.7435C45.0932 90.696 38.2897 90.3207 33.2219 87.3516C30.7105 85.8803 28.5542 83.9897 26.8762 81.7877C23 76.7011 23 69.6203 23 55.4587C23 41.297 23 34.2162 26.8762 29.1297C28.5542 26.9277 30.7105 25.037 33.2219 23.5657C39.023 20.167 47.0987 20.167 63.25 20.167H74.75C90.9013 20.167 98.977 20.167 104.778 23.5657C107.289 25.037 109.446 26.9277 111.124 29.1297Z" fill="#7E869E" fill-opacity="0.25" stroke="#28B0BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M51.75 45.375L86.25 45.375" stroke="#28B0BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M51.75 65.542H69" stroke="#28B0BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                              <filter id="filter0_d_332_273" x="-4" y="0" width="146" height="129" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                <feOffset dy="4"/>
+                                <feGaussianBlur stdDeviation="2"/>
+                                <feComposite in2="hardAlpha" operator="out"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_332_273"/>
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_332_273" result="shape"/>
+                              </filter>
+                            </defs>
+                          </svg>
+                    </div></a><a href="{{route('consultant')}}">
+                    <h4 class="h4-p4">ثبت مشاوره رایگان</h4>
+                </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="cell-p4">
+                    <a href="{{route('appointment')}}">
+                    <div class="svg-p4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="101" height="101" viewBox="0 0 121 121" fill="none">
+                            <path d="M100.833 30.167C100.833 25.4529 100.833 23.0959 99.3688 21.6315C97.9044 20.167 95.5473 20.167 90.8333 20.167H30.1666C25.4526 20.167 23.0956 20.167 21.6311 21.6315C20.1666 23.0959 20.1666 25.4529 20.1666 30.167V98.8336C20.1666 99.7765 20.1666 100.248 20.4595 100.541C20.7524 100.834 21.2238 100.834 22.1666 100.834H90.8333C95.5473 100.834 97.9044 100.834 99.3688 99.3692C100.833 97.9047 100.833 95.5477 100.833 90.8336V30.167Z" fill="#7E869E" fill-opacity="0.25"/>
+                            <path d="M42.8541 42.8545H78.1458" stroke="#28B0BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M42.8541 57.9795H68.0625" stroke="#28B0BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M93.2917 78.1462C93.2917 83.7265 88.7679 88.2503 83.1875 88.2503C77.6072 88.2503 73.0834 83.7265 73.0834 78.1462C73.0834 72.5658 77.6072 68.042 83.1875 68.042C88.7679 68.042 93.2917 72.5658 93.2917 78.1462Z" stroke="#28B0BD" stroke-width="5"/>
+                            <path d="M95.7916 90.75L103.354 98.3125" stroke="#28B0BD" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                    </div></a><a href="{{route('appointment')}}">
+                    <h4 class="h4-p4">نوبت دهی آنلاین</h4>
+                </a>
+                </div>
+            </div>
+        </div>
        </div>
+
    </div>
    <!-- page 5 -->
    <div class="img-back-p5">    
@@ -184,6 +195,7 @@
                    در مورد اختلالات بلع، عواقب آن و ارائه خدمت به بیماران نیازمند دریافت خدمات گفتار درمانی است.
                </p>
                <button>
+                <a href="{{route('team')}}" style="color: white;">
                    <svg width="41" height="36" viewBox="0 0 41 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                        <ellipse cx="8.76812" cy="10.25" rx="8.76812" ry="10.25"
                            transform="matrix(5.1099e-08 -1 -1 -3.73919e-08 30.75 29.8408)" fill="#7E869E"
@@ -193,6 +205,7 @@
                            stroke="white" stroke-width="3" stroke-linecap="round" />
                    </svg>
                    مشاهده تمامی اعضا
+                </a>
                </button>
            </div>
        </div>

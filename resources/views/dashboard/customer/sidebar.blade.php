@@ -7,8 +7,8 @@
     <span class="humburger-menu" onclick="openNav()">☰</span>
     <div id="mySidenav" class="sidenav" style="display: none;">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <div class="logo"><img src="{{asset('images/logo.png')}}"></div>
-      <p style="margin-top: 47px;margin-bottom: -35px;color: blue;padding: 12px;background: #b2d1eb;width: fit-content;text-align: center;display: block; margin-left: auto;margin-right: auto;border-radius: 30px;font-size: 18px;">پنل جامع بیماران ایران مد اس ال پی</p>
+      <div class="logo"><img src="{{asset('img/logo-light.png')}}"></div>
+      <p style="margin-top: 47px;margin-bottom: -35px;color: #c82073;padding: 12px;background: #ebabca;width: fit-content;text-align: center;display: block; margin-left: auto;margin-right: auto;border-radius: 30px;font-size: 18px;">پنل جامع بیماران اوستا</p>
       <div class="panelmenu">
         <ul>
           <li>
@@ -66,8 +66,8 @@
     </div>
     <div class="panel-side">
       <div class="logo">
-        <div class="logo"><img src="{{asset('images/logo.png')}}"></div>
-        <p style="margin-top: 47px;margin-bottom: -35px;color: blue;padding: 12px;background: #b2d1eb;width: fit-content;text-align: center;display: block; margin-left: auto;margin-right: auto;border-radius: 30px;font-size: 18px;">پنل جامع بیماران ایران مد اس ال پی</p>
+        <div class="logo"><img src="{{asset('img/logo-light.png')}}"></div>
+      <p style="margin-top: 47px;margin-bottom: -35px;color: #c82073;padding: 12px;background: #ebabca;width: fit-content;text-align: center;display: block; margin-left: auto;margin-right: auto;border-radius: 30px;font-size: 18px;">پنل جامع بیماران اوستا</p>
       </div>
       <div class="panelmenu">
         <ul>

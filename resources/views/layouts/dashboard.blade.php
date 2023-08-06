@@ -35,6 +35,64 @@ scratch. This page gets rid of all links and provides the needed markup only.
             text-align: left;
         }
     </style>
+<style>
+    .card-info:not(.card-outline) > .card-header {
+        background-color: #dd3784;
+    }
+    a {
+        color: #dd3784;
+    }
+    .content-wrapper {
+        background: #f9f4f4;
+    }
+    .teachername a {
+      padding-right: 13px;
+    }
+    .chartshead {
+        display: flex;
+        align-items: center;
+    }
+    .tab {
+      overflow: hidden;
+      margin-right:auto;
+    }
+    .tablinks {
+      background-color: #f5f5f5 !important;
+      margin: 0px 15px;
+      border-radius: 38px;
+    }
+    /* Style the buttons that are used to open the tab content */
+    .tab button {
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: white;
+        padding: 15px 30px;
+        transition: 0.3s;
+        font-size: 20px;
+    }
+    .sidebar a {
+        color: #dd3784;
+    }
+    .sidebar-dark-gray .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-gray .nav-sidebar > .nav-item > .nav-link.active {
+        background-color: #dd3784;
+        color: #ffffff;
+    }
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #dd3784 !important;
+    }
+    
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #dd3784 !important;
+    }
+    
+    .bg-gradient-info {
+        background: #a3ccd3 linear-gradient(180deg, #8d348f, #b817b500) repeat-x !important;
+    }
+    </style>
     @yield('styles', '')
     <link rel="stylesheet" href="{{ asset('assets/dashboard/css/adminlte.rtl.css') }}">
     <!-- Google Font: Source Sans Pro -->
@@ -72,9 +130,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-gray elevation-4">
         <!-- Brand Logo -->
-        <a href="{{ route('dashboard.index') }}" class="brand-link">
-            <img src="" alt="{{ config('app.name') }}" style=" width: 95%;" class="brand-image "
-                 style="opacity: .8">
+        <a href="{{ route('dashboard.index') }}" style="text-align:center" class="brand-link">
+            پنل ادمین اوستا
+     
         </a>
 
         <!-- Sidebar -->
@@ -131,10 +189,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <footer class="main-footer">
         <!-- To the right -->
         <div class="float-right d-none d-sm-inline">
-            گفتار درمانی
+            اوستا
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2020 <a href="https://webitofa.ir">webito</a> & <a href="#">Salar Shirkhani</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2023 <a href="https://blkland.ir">blkland</a> & <a href="#">Salar Shirkhani</a>.</strong> All rights reserved.
     </footer>
 </div>
 <!-- ./wrapper -->
