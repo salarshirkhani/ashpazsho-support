@@ -13,46 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', 'FrontController@index')->name('/');
-Route::get('products', 'FrontController@products')->name('products');
-Route::get('product/{name}', 'FrontController@Sproduct')->name('product');
-Route::get('blog', 'FrontController@blog')->name('blog');
-Route::get('single/{id}', 'FrontController@single')->name('single');
-Route::get('contact', 'FrontController@contact')->name('contact');
-Route::get('about', 'FrontController@about')->name('about');
-Route::get('employees', 'FrontController@employees')->name('employees');
-Route::get('search', 'FrontController@search')->name('search');
-Route::get('team', 'FrontController@team')->name('team');
-Route::get('profile/{id}', 'FrontController@profile')->name('profile');
-Route::post('comment', 'FrontController@comment')->name('comment');
-Route::get('appointment', 'FrontController@appointment')->name('appointment');
-Route::get('doctor/{id}', 'FrontController@doctor')->name('doctor');
-Route::post('schedu', 'FrontController@schedu')->name('schedu');
-Route::post('consul', 'FrontController@CreateConsultant')->name('consul');
-Route::get('consultant', 'FrontController@Consultant')->name('consultant');
-Route::get('services', 'FrontController@services')->name('services');
-Route::get('find', 'FrontController@find')->name('find');
-Route::post('pro', 'FrontController@Pro')->name('pro');
-Route::get('procedure', 'FrontController@Procedure')->name('procedure');
-Route::get('problem', 'FrontController@Problem')->name('problem');
-Route::get('khalili', 'FrontController@khalili')->name('khalili');
-Route::get('responses', 'FrontController@response')->name('responses');
-Route::get('category/{slug}', 'FrontController@category')->name('category');
-//par
-
-Route::get('parvandeshow', 'FrontController@ParvandeShow')->name('parvandeshow');
-
-
-
-
-//SITE MAP
-Route::get('/sitemap.xml', 'SitemapController@index');
-Route::get('/sitemap.xml/articles', 'SitemapController@articles');
-Route::get('/sitemap.xml/movies', 'SitemapController@movies');
-Route::get('/sitemap.xml/resume', 'SitemapController@resume');
-Route::get('/sitemap.xml/categories', 'SitemapController@categories');
-
+Route::get('mxc-account-info', 'FrontController@getAccountInfo')->name('mxc-account-info');
 Auth::routes();
 
 Route::prefix('dashboard')
@@ -61,8 +23,6 @@ Route::prefix('dashboard')
     ->namespace('Dashboard')
     ->group(function() {
         Route::get('', 'IndexController@get')->name('index');
-        Route::get('profile',  'ProfileController@edit')->name('profile.edit');
-        Route::put('profile',  'ProfileController@update')->name('profile.update');
         Route::prefix('admin')
             ->name('admin.')
             ->middleware('user_type:admin')
@@ -70,37 +30,10 @@ Route::prefix('dashboard')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');
 
-                Route::resource('slider-items', 'SliderItemController')->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
-          
-                Route::post('news/create', ['uses' => 'PostController@CreatePost','as' => 'news.create' ]);
-                Route::get('news/create', ['uses' => 'PostController@GetCreatePost','as' => 'news.create']); 
+                //CONTACT CONTROLLER
+                Route::get('contact/manage', 'ContactController@GetManagePost')->name('contact.manage');
+                Route::get('deletecontact/{id}','ContactController@DeletePost')->name('contact.deletecontact');  
                 
-                Route::get('news/manage', 'PostController@GetManagePost')->name('news.manage');
-                Route::get('deletepost/{id}','PostController@DeletePost')->name('news.deletepost');  
-                Route::get('updatepost/{id}','PostController@GetEditPost')->name('news.updatepost');
-                Route::post('updatepost/{id}','PostController@UpdatePost')->name('news.updatepost');
-
-                Route::post('product/create', ['uses' => 'ProductController@CreatePost','as' => 'product.create' ]);
-                Route::get('product/create', ['uses' => 'ProductController@GetCreatePost','as' => 'product.create']); 
-                Route::get('product/manage', 'ProductController@GetManagePost')->name('product.manage');
-                Route::get('deleteproduct/{id}','ProductController@DeletePost')->name('product.deleteproduct');  
-                Route::get('updateproduct/{id}','ProductController@GetEditPost')->name('product.updateproduct');
-                Route::post('updateproduct/{id}','ProductController@UpdatePost')->name('product.updateproduct');      
-                Route::get('/run-migrations', function () {
-                    return Artisan::call('migrate', ["--force" => true ]);
-                });
-                //Category Controller 
-                Route::resource("categories", "CategoryController");
-
-                //Post Category Controller 
-                Route::resource("postcategories", "PostCategoryController");
-
-                //Consultant Controller
-                Route::get('consultant/manage', 'ConsultantController@GetManagePost')->name('consultant.manage');
-                Route::get('consultant/show/{id}','ConsultantController@ShowPost')->name('consultant.show'); 
-                Route::post('consultant/answer/{id}','ConsultantController@AnswerPost')->name('consultant.answer'); 
-                Route::get('deleteconsultant/{id}','ConsultantController@DeletePost')->name('consultant.deleteconsultant'); 
-
                 //USER CONTROLLER
                 Route::get('users', 'UserController@getprofile')->name('users.index');
                 Route::post('users/create', ['uses' => 'UserController@CreatePost','as' => 'users.create' ]);
@@ -112,50 +45,74 @@ Route::prefix('dashboard')
                 Route::post('users/changerole', 'UserController@Role')->name('users.changerole');
                 Route::get('deleteorder/{id}','UserController@DeleteOrder')->name('users.deleteorder');
                 Route::post('users/addorder', 'UserController@AddOrder')->name('users.addorder');
+                
+                //SUBSCRIPTION CONTROLLER
+                Route::post('subscription/create', ['uses' => 'SubscriptionController@CreatePost','as' => 'subscription.create' ]);
+                Route::get('subscription/create', ['uses' => 'SubscriptionController@GetCreatePost','as' => 'subscription.create']); 
+                Route::get('subscription/manage', 'SubscriptionController@GetManagePost')->name('subscription.manage');
+                Route::get('subscription/delete/{id}','SubscriptionController@DeletePost')->name('subscription.delete');  
+                Route::get('subscription/update/{id}','SubscriptionController@GetEditPost')->name('subscription.update');
+                Route::post('subscription/update/{id}','SubscriptionController@UpdatePost')->name('subscription.update');     
 
-                //PARVANDE ELECTRONIC
-                Route::post('users/par', 'UserController@Createpar')->name('users.par');
-                Route::get('users/parvande/{id}', 'UserController@Parvande')->name('users.parvande');
+                //NOTIFICATION CONTROLLER
+                Route::post('notification/create', ['uses' => 'NotificationController@CreatePost','as' => 'notification.create' ]);
+                Route::get('notification/create', ['uses' => 'NotificationController@GetCreatePost','as' => 'notification.create']); 
+                Route::get('notification/manage', 'NotificationController@GetManagePost')->name('notification.manage');
+                Route::get('deletenotification/{id}','NotificationController@DeletePost')->name('notification.deletenotification');  
+                Route::get('updatenotification/{id}','NotificationController@GetEditPost')->name('notification.updatenotification');
+                Route::post('updatenotification/{id}','NotificationController@UpdatePost')->name('notification.updatenotification');
+                
+                //SUPPORT MANAGMENT
+                Route::post('support/create', ['uses' => 'SupportController@Sendsupport','as' => 'support.create' ]);
+                Route::get('support/create', ['uses' => 'SupportController@GetCreateSupport','as' => 'support.create']); 
+                Route::get('support/manage', 'SupportController@GetManagePost')->name('support.manage');
+                Route::get('support/deletepost/{id}','SupportController@DeletePost')->name('support.deletepost');  
+                Route::get('support/show/{id}','SupportController@ShowPost')->name('support.show');
+                Route::post('support/update','SupportController@UpdatePost')->name('support.update');
+                Route::get('support/updatepost/{id}','SupportController@GetEditPost')->name('support.updatepost');
+                Route::post('send','SupportController@Message')->name('support.send'); 
+                Route::post('closechat','SupportController@close')->name('support.closechat'); 
+
+                //USERS IN SUPPORT MANAGMENT
+                Route::post('support/adduser','SupportController@AddUser')->name('support.adduser'); 
+                Route::get('changerole/{id}','SupportController@changerole')->name('support.changerole');
+                Route::get('deleteuser/{id}','SupportController@deleteuser')->name('support.deleteuser');
 
 
-                //COMMENT CONTROLLER
-                Route::get('comment/manage', 'CommentController@GetManagePost')->name('comment.manage');
-                Route::get('deletecomment/{id}','CommentController@DeletePost')->name('comment.deletecomment');  
-                Route::get('updatecomment/{id}','CommentController@GetEditPost')->name('comment.updatecomment');
-                Route::post('updatecomment/{id}','CommentController@UpdatePost')->name('comment.updatecomment');
 
-                //RESPONSE CONTROLLER
-                Route::get('response/manage', 'ResponseController@GetManagePost')->name('response.manage');
-                Route::get('deleteresponse/{id}','ResponseController@DeletePost')->name('response.deleteresponse');  
-                Route::get('updateresponse/{id}','ResponseController@GetEditPost')->name('response.updateresponse');
-                Route::post('updateresponse/{id}','ResponseController@UpdatePost')->name('response.updateresponse');
-           
                 //UPLOAD CENTER
                 Route::post('uploader/create', ['uses' => 'UploadController@CreatePost','as' => 'uploader.create' ]);
                 Route::get('uploader/create', ['uses' => 'UploadController@GetCreatePost','as' => 'uploader.create']); 
                 Route::get('uploader/manage', 'UploadController@GetManagePost')->name('uploader.manage');
                 Route::get('deleteupload/{id}','UploadController@DeletePost')->name('uploader.deleteupload'); 
-                
-                
-                //SETTING CENTER
-                Route::get('setting/manage', 'SettingController@index')->name('setting.manage');
-                Route::post('setting/manage', 'SettingController@post')->name('setting.manage');
 
-                //DATE MANAGMENT
-                Route::post('date/create', ['uses' => 'DateController@CreatePost','as' => 'date.create']);
-                Route::get('date/create', ['uses' => 'DateController@GetCreatePost','as' => 'date.create']);
-                Route::get('date/manage', 'DateController@GetDate')->name('date.manage');
-                Route::get('deletedate/{id}','DateController@DeletePost')->name('date.deletedate');
+                //Transaction And Orders CONTROLLER
+                Route::get('transaction/manage', 'TransactionController@GetManagePost')->name('transaction.manage');
+                Route::get('deletetransaction/{id}','TransactionController@DeletePost')->name('transaction.deleteproduct');  
+                Route::get('orders/manage', 'TransactionController@GetOrders')->name('orders.manage');
 
-                Route::get('schedule/manage', 'DateController@GetSchedule')->name('schedule.manage');
-                Route::get('deletesche/{id}','DateController@DeleteSche')->name('schedule.deletesche');
+                //REFERAL CONTROLLER
+                Route::post('referal/create', ['uses' => 'ReferalController@CreatePost','as' => 'referal.create' ]);
+                Route::get('referal/create', ['uses' => 'ReferalController@GetCreatePost','as' => 'referal.create']); 
+                Route::get('referal/manage', 'ReferalController@GetManagePost')->name('referal.manage');
+                Route::get('referal/delete/{id}','ReferalController@DeletePost')->name('referal.delete');  
+                Route::get('referal/update/{id}','ReferalController@GetEditPost')->name('referal.update');
+                Route::post('referal/update/{id}','ReferalController@UpdatePost')->name('referal.update');
 
-                //Consultant Controller
-                Route::get('procedure/manage', 'ProcedureController@GetManagePost')->name('procedure.manage');
-                Route::get('procedure/show/{id}','ProcedureController@ShowPost')->name('procedure.show'); 
-                Route::get('deleteprocedure/{id}','ProcedureController@DeletePost')->name('procedure.deleteprocedure');
+
+                // Clear application cache
+                Route::get('/clear-cache', function () {
+                    Artisan::call('cache:clear');
+                    Artisan::call('route:clear');
+                    Artisan::call('config:cache');
+                    Artisan::call('view:clear');
+                    Artisan::call('optimize:clear');
+                    return "Cache cleared successfully";
+                })->name('clear-cache');
 
             });
+
+
 
         Route::prefix('customer')
             ->name('customer.')
@@ -163,41 +120,51 @@ Route::prefix('dashboard')
             ->namespace('Customer')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');
-                Route::get('visit/show/{id}','IndexController@ShowPost')->name('visit.show'); 
-
-                Route::post('consultant/create', ['uses' => 'ConsultantController@CreatePost','as' => 'consultant.create' ]);
-                Route::get('consultant/create', ['uses' => 'ConsultantController@GetCreatePost','as' => 'consultant.create']); 
-                Route::get('consultant/manage', 'ConsultantController@GetManagePost')->name('consultant.manage');
-                Route::get('consultant/show/{id}','ConsultantController@ShowPost')->name('consultant.show'); 
-
-                //RESPONSE MANAGMENT
-                Route::post('response/create', ['uses' => 'ResponseController@CreatePost','as' => 'response.create']);
-                Route::get('response/create', ['uses' => 'ResponseController@GetCreatePost','as' => 'response.create']);
-                Route::get('response/manage', 'ResponseController@GetManagePost')->name('response.manage');
-
-                //PROFILE
+                Route::get('likes', 'IndexController@likes')->name('likes');
                 Route::get('notification/{id}', 'IndexController@notification')->name('notification');
-                Route::get('profile', 'IndexController@profile')->name('profile');
-                Route::post('profile/edit', 'IndexController@Editprofile')->name('profile.edit');
-            });
-            
-        Route::prefix('owner')
-            ->name('owner.')
-            ->middleware('user_type:operator')
-            ->namespace('Owner')
+                
+                //PROFILE AND VERIFY
+				Route::get('profile', 'ProfileController@profile')->name('profile');
+				Route::get('verify', 'ProfileController@verify')->name('verify');
+                Route::post('verify/edit', 'ProfileController@Editverify')->name('verify.edit');
+                Route::post('profile/edit', 'ProfileController@Editprofile')->name('profile.edit');
+                Route::post('profile/pass', 'ProfileController@Editpass')->name('profile.pass');
+                
+                //SUBSCRIPTION SYSTEM 
+                Route::get('subscription', 'IndexController@subscription')->name('subscription');
+                Route::post('subs','IndexController@subs')->name('subs');
+
+                //SUPPORT
+                Route::get('tickets','SupportController@tickets')->name('tickets');
+                Route::get('support','SupportController@support')->name('support');
+                Route::post('support','SupportController@Sendsupport')->name('support');
+                Route::get('chat/{id}','SupportController@Chats')->name('chat');  
+                Route::post('send','SupportController@Message')->name('send'); 
+                Route::post('closechat','SupportController@close')->name('closechat');
+
+                //VARIZ
+                Route::get('payment','PaymentController@payment')->name('payment');
+                Route::get('payment/generate','PaymentController@generate')->name('payment.generate');
+                Route::post('payment/grnt','PaymentController@grnt')->name('payment.grnt');
+                Route::post('payment/create','PaymentController@create')->name('payment.create');
+                
+                //REFERAL
+                Route::get('referal','IndexController@Referal')->name('referal');
+                Route::get('referal/create','IndexController@ReferalCreate')->name('referal.create');
+
+        });
+
+
+        Route::prefix('buyer')
+            ->name('buyer.')
+            ->middleware('user_type:seller')
+            ->namespace('Buyer')
             ->group(function() {
                 Route::get('', 'IndexController@get')->name('index');
-                
-                //USER CONTROLLER
-                Route::get('users', 'UserController@getprofile')->name('users.index');
-                Route::post('users/par', 'UserController@Createpar')->name('users.par');
-                Route::get('users/parvande/{id}', 'UserController@Parvande')->name('users.parvande');
-                
-                //POST CONTROLLER
-                Route::post('news/create', ['uses' => 'PostController@CreatePost','as' => 'news.create' ]);
-                Route::get('news/create', ['uses' => 'PostController@GetCreatePost','as' => 'news.create']); 
-                Route::get('news/manage', 'PostController@GetManagePost')->name('news.manage');
-
+                Route::get('cart', 'IndexController@cart')->name('cart');
+                Route::get('likes', 'IndexController@likes')->name('likes');
+                Route::get('profile', 'IndexController@profile')->name('profile');
+                Route::get('notification/{id}', 'IndexController@notification')->name('notification');
 
             });
 

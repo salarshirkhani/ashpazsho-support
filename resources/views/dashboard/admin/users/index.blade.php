@@ -19,67 +19,65 @@
             <x-card-header>مدیریت کاربر ها</x-card-header>
                 <x-card-body>
                     <div class="box-body">
-                        <table id="example2" class="table table-bordered table-hover">
+                        <table id="example1" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>#</th>
                                 <th>تصویر</th>
                                 <th>نام و نام خانوادگی</th>
                                 <th>شماره موبایل</th>
                                 <th>ایمیل</th>
                                 <th>وضعیت کاربری</th>
-                                <th>تاریخ تولد</th>
+                                <th>تایید شده</th>
                                 <th>نمایش</th>
-                                <th>پرونده الکترونیکی</th>    
                                 <th>حذف</th>                               
-                                <th>ویرایش</th>
                             </tr>
                             </thead>
                                 <tbody>
                              @foreach($user as $item)
-                                <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td><img src="{{ asset('images/'.$item['pic'].'/'.$item['pic'] ) }}" alt="" style="width:100px; height:100px; border-radius: 70px;"></td>
+                                @if($item->accept=='yes')
+                                    @php $color='#a0e66d85'; @endphp
+                                @else
+                                    @php $color='#d6919185'; @endphp
+                                @endif
+                                <tr style="background:{{$color}}">
+                                    <td><img src="{{ asset('pics/'.$item['profile'].'/'.$item['profile'] ) }}" alt="" style="width:100px; height:100px; border-radius: 70px;"></td>
                                     <td>{{ $item->first_name }} {{$item->last_name}}</td>
                                     <td>{{ $item->mobile }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>
                                        @if($item->type=='buyer')
-                                            خریدار
+                                            کاربرعادی
                                        @endif
                                        @if($item->type=='operator')
-                                         دکتر
+                                       اپراتور 
                                        @endif
                                     </td>
-                                    <td>{{ Facades\Verta::instance($item->birthdate)->format('Y/n/j')}}</td>  
+                                    <td>                                       
+                                   @if($item->accept=='yes')
+                                      تایید شده
+                                   @else
+                                     تایید نشده 
+                                   @endif
+                                   </td>
                                     <td>
                                         <a href="{{route('dashboard.admin.users.show',['id'=>$item->id])}}" class="btn btn-warning">نمایش</a>
                                     </td>
                                     <td>
-                                        <a href="{{route('dashboard.admin.users.parvande',['id'=>$item->id])}}" class="btn btn-info">پرونده الکترونیکی</a>
-                                    </td>
-                                    <td>
                                         <a href="{{route('dashboard.admin.users.deleteuser',['id'=>$item->id])}}" class="delete_post" ><i class="fa fa-fw fa-eraser"></i></a>                 
-                                    </td>
-                                    <td>
-                                        <a href="{{route('dashboard.admin.users.edit',['id'=>$item->id])}}" class="edit_post" target="_blank"><i class="fas fa-edit"></i></a>
                                     </td>
                                 </tr>
                              @endforeach
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>#</th>
                                     <th>تصویر</th>
                                     <th>نام و نام خانوادگی</th>
                                     <th>شماره موبایل</th>
                                     <th>ایمیل</th>
                                     <th>وضعیت کاربری</th>
-                                    <th>تاریخ تولد</th>
+                                    <th>تایید شده</th>
                                     <th>نمایش</th>
-                                    <th>پرونده الکترونیکی</th>    
                                     <th>حذف</th>                               
-                                    <th>ویرایش</th>
                                 </tr>
                                 </tfoot>
                         </table>

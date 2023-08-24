@@ -6,10 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Notifications\SignedUp;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\subscribe;
+use App\subscription;
+use App\code;
+use App\Rules\JalaliDate;
+use Hekmatinasser\Verta\Verta;
+use Morilog\Jalali\Jalalian;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Mews\Captcha;
 
 class RegisterController extends Controller
 {
@@ -52,12 +60,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'mobile' => ['required', 'regex:/^(09[0-9]{9})|(۰۹[۰-۹]{9})$/', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'type' => ['required', 'in:buyer'],
+            'captcha' => 'required|Captcha',
         ]);
 
     }
@@ -70,14 +76,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'monile' => $data['last_name'],
-            'email' => $data['email'],
+        $post = new User([
             'mobile' => $data['mobile'],
+            'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'type' => 'buyer'
         ]);
+        $post->save();
+
+
+        return $post;
+
     }
+
+
+
 }

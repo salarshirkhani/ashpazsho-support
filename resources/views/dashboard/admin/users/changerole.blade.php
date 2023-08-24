@@ -11,8 +11,8 @@
           <x-card type="info">
         <form style="padding:10px;" action="{{ route('dashboard.admin.users.changerole') }}" method="post" role="form" class="form-horizontal " enctype="multipart/form-data">
           <x-select-group name="role" label="وضعیت کاربر" required :model="$model ?? null">
-                <x-select-item value="buyer">خریدار</x-select-item>
-                <x-select-item value="operator">دکتر</x-select-item>
+                <x-select-item value="buyer">کاربر عادی</x-select-item>
+                <x-select-item value="operator">اپراتور</x-select-item>
           </x-select-group>         
           <input type="hidden"  name="user_id" value="{{$user->id}}" >    
 

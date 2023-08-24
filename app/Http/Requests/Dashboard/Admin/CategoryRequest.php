@@ -15,9 +15,12 @@ abstract class CategoryRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:60'],
-            'description' => ['required', 'string', 'max:255'],
+            'description' => ['nullable'],
+            'priority' => ['nullable'],
+            'show' => ['nullable'],
             'slug' => ['required', 'string', 'regex:/^[a-zA-Z0-9-]+$/'],
             'parent_id' => ['nullable', 'exists:categories,id'],
+            'type' => ['required', 'in:post,product,movie']
         ];
     }
 

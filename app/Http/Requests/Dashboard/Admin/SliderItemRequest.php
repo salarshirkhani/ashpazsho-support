@@ -14,9 +14,10 @@ abstract class SliderItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['nullable','string', 'max:255'],
+            'title' => ['required', 'string', 'max:255'],
             'priority' => ['required', 'integer', 'min:0'],
             'url' => ['required', 'url'],
+            'place' => ['required', 'string', 'max:255'],
         ];
     }
 }

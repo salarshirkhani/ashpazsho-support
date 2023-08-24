@@ -1,42 +1,20 @@
 @extends('layouts.auth')
 
+
+
 @section('content')
-    @if ($errors->any())
-        <div class="wrap-messages">
-            @foreach ($errors->all() as $error)
-                <div class="alert alert-danger">{{ $error }}</div>
-            @endforeach
-        </div>
-    @endif
-
-    <div class="login100-pic js-tilt" data-tilt="">
-        <img src="{{ asset("assets/auth/images/auth.webp") }}" alt="IMG">
-    </div>
-
-
     <form class="login100-form validate-form" action="{{ route('register') }}" method="POST">
+        @if ($errors->any())
+            <div class="col-md-12">
+                @foreach ($errors->all() as $error)
+                    <p class="alert alert-info">{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
         @csrf
         <span class="login100-form-title">
-						خوش آمدید :)
-					</span>
-
-        <div class="wrap-input100 validate-input" data-validate="نام اجباری است!">
-            <input type="text" name="first_name" maxlength="100" class=" input100" placeholder="نام" required=""
-                   id="id_first_name" value="{{ old('first_name') ?? '' }}">
-            <span class="focus-input100"></span>
-            <span class="symbol-input100">
-							<i class="fa fa-user" aria-hidden="true"></i>
-						</span>
-        </div>
-
-        <div class="wrap-input100 validate-input" data-validate="نام‌خانوادگی اجباری است!">
-            <input type="text" name="last_name" maxlength="100" class=" input100" placeholder="نام خانوادگی" required=""
-                   id="id_last_name" value="{{ old('last_name') ?? '' }}">
-            <span class="focus-input100"></span>
-            <span class="symbol-input100">
-							<i class="fa fa-user" aria-hidden="true"></i>
-						</span>
-        </div>
+		<img src="{{asset('img/logo1.png')}}" style="width:50%; margin:-20px 0px;">
+		</span>
 
         <div class="wrap-input100 validate-input" data-validate="موبایل صحیح نیست!">
             <input type="tel" name="mobile" class=" input100" placeholder="موبایل" required=""
@@ -75,9 +53,22 @@
 						</span>
         </div>
 
+        <!--  CAPTCHA   -->
+        <div style="border: 1px solid rgb(160, 160, 255); border-radius:10px; padding:7px;">
+            <img src="{!!Captcha::src('default')!!}" style="width:60%; display:block; margin-left:auto; margin-right:auto; margin-bottom:5px;">
+            <div class="wrap-input100 validate-input" data-validate="کپچا به درستی وارد نشده است">
+                <input type="text" name="captcha" class=" input100" placeholder="کد کپچا" id="id_capctha" required>
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                </span>
+            </div>
+        </div>
+
+
         <div class="container-login100-form-btn">
-            <button type="submit" class="login100-form-btn" name="type" value="buyer" style="margin-top: 8px">
-            ثبت‌ نام 
+            <button class="login100-form-btn" name="type" value="buyer" style="margin-top: 8px">
+                ثبت‌نام 
             </button>
         </div>
 
@@ -96,10 +87,7 @@
                 <i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
             </a>
             <br>
-            <a class="txt2" href="">
-                بازگشت
-                <i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
-            </a>
+
         </div>
     </form>
 @endsection

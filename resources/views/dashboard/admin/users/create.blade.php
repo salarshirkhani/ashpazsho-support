@@ -35,10 +35,12 @@
             <input type="password" style="padding:10px; margin: 10px 0px 16px 0px; height: 40px; border-radius: 7px; font-size: 16px;"class="form-control" name="password"  placeholder="رمز عبور">  
             <input type="password" style="padding:10px; margin: 10px 0px 16px 0px; height: 40px; border-radius: 7px; font-size: 16px;"class="form-control" name="password_confirmation"  placeholder="تکرار رمز">  
             <input type="text" style="padding:10px; margin: 10px 0px 16px 0px; height: 40px; border-radius: 7px; font-size: 16px;"class="form-control" name="mobile"   placeholder="موبایل">  
-            <x-select-group name="type" label="وضعیت کاربر" required :model="$model ?? null">
+            <x-select-group name="type" label="نوع کاربری" required :model="$model ?? null">
                 <x-select-item value="buyer">خریدار</x-select-item>
-                <x-select-item value="operator">دکتر</x-select-item>
-            </x-select-group>    
+                <x-select-item value="teacher">مدرس</x-select-item>
+                <x-select-item value="seller">خریدار عمده</x-select-item>
+                <x-select-item value="admin">ادمین</x-select-item>
+            </x-select-group> 
             <div class="form-group">
                 <label>تاریخ تولد:</label>
                 <div class="input-group">

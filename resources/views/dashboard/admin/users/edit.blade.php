@@ -26,10 +26,12 @@
             <input type="text" style="padding:10px; margin: 10px 0px 16px 0px; height: 40px; border-radius: 7px; font-size: 16px;"class="form-control" name="last_name" value="{{$user->last_name}}"  placeholder="نام خانوادگی">
             <input type="text" style="padding:10px; margin: 10px 0px 16px 0px; height: 40px; border-radius: 7px; font-size: 16px;"class="form-control" name="email" value="{{$user->email}}"  placeholder="ایمیل">  
             <input type="text" style="padding:10px; margin: 10px 0px 16px 0px; height: 40px; border-radius: 7px; font-size: 16px;"class="form-control" name="mobile" value="{{$user->mobile}}"  placeholder="موبایل">  
-            <x-select-group name="role" label="وضعیت کاربر" required :model="$model ?? null">
+            <x-select-group name="type" label="نوع کاربری" required :model="$model ?? null">
                 <x-select-item value="buyer">خریدار</x-select-item>
-                <x-select-item value="operator">دکتر</x-select-item>
-            </x-select-group>    
+                <x-select-item value="teacher">مدرس</x-select-item>
+                <x-select-item value="seller">خریدار عمده</x-select-item>
+                <x-select-item value="admin">ادمین</x-select-item>
+            </x-select-group> 
             <div class="form-group">
                 <label>تاریخ تولد:</label>
                 <div class="input-group">
@@ -38,6 +40,7 @@
                   </div>
                   <input id="date" name="birthdate" value="{{ Facades\Verta::instance($user->birthdate)->format('Y/n/j')}}" type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask="">
                 </div>
+                <!-- /.input group -->
             </div>
              <input type="hidden" name="id" value="{{$user->id}}">
             <input type="file" style="margin: 10px 0px 16px 0px; height: 40px; border-radius: 7px; width: 100%; font-size: 16px;" class="dropzone"  name="pic" >

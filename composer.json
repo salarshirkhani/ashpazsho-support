@@ -17,6 +17,7 @@
         "ipecompany/smsirlaravel": "^1.0",
         "johnnyfreeman/laravel-custom-relation": "dev-master",
         "laravel/framework": "^7.0",
+        "laravel/sanctum": "^2.15",
         "laravel/telescope": "^3.3",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",

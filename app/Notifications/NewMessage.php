@@ -4,7 +4,7 @@ namespace App\Notifications;
 
 use App\Channels\Messages\TextMessage;
 use App\Channels\SmsChannel;
-use App\Message;
+use App\chat ;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -50,12 +50,10 @@ class NewMessage extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject("✅ پاسخ جدید در پُل")
-            ->greeting("سلام {$this->user->name}!")
-            ->line("از طرف {$this->message->from->name} به شما پیامی ارسال شده است.")
-            ->line("محتویات:")
-            ->line($this->message->text)
-            ->action('مشاهده درخواست', route("dashboard.{$this->user->type}.conversations.show", $this->message->conversation_id));
+            ->subject("✅پاسخ به پیام شما در باهم")
+            ->greeting("سلام {$this->user->last_name}!")
+            ->line("برای شما یک پیام جدید در باهم ارسال شده است . لطفا وارد سایت شده و پیام خود را مشاهده کنید")
+            ->action('مشاهده درخواست', route("dashboard.customer.support"));
     }
 
     /**
@@ -67,7 +65,7 @@ class NewMessage extends Notification implements ShouldQueue
     public function toText($notifiable)
     {
         return (new TextMessage())
-            ->line("سلام {$this->user->name}!")
-            ->line("از طرف {$this->message->from->name} به شما پیامی ارسال شده است.");
+            ->line("سلام")
+            ->line("پاسخ پیام شما در پلتفرم باهم داده شد");
     }
 }

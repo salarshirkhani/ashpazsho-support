@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Dashboard\Admin;
 
 use App\Category;
-use App\postcategory;
 
 class CategoryStoreRequest extends CategoryRequest
 {
